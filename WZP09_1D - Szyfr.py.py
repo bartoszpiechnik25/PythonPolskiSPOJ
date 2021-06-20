@@ -31,10 +31,10 @@ def decryption(string):
         return decryption(new) + a + decryption(b)
 
 
-
 print(decryption(str(input())))
 
 #Alternatywna wersja używając wyrażenia lambda
-dec = lambda s: s if len(s) < 3 else (dec(s[1:((len(s) + 1) // 2)]) + s[0] + dec(s[((len(s) + 1) // 2):]))
+dec = lambda s: s if len(s) < 3 else dec(s[1:(len(s) + 1) // 2]) + s[0] + dec(s[(len(s) + 1) // 2:])
+
 
 print(dec(str(input())))
