@@ -22,7 +22,7 @@
 t = int(input())
 
 
-def modulo(a, b):
+def euclid(a, b):
     while b != 0:
         c = a % b
         a = b
@@ -32,5 +32,5 @@ def modulo(a, b):
 
 for i in range(t):
     x, y = map(int, input().split())
-    number = (x*y)/modulo(x, y)
+    number = (x*y)/euclid(x, y)
     print(int(number))
