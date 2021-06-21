@@ -33,7 +33,7 @@ def decryption(string):
 
 print(decryption(str(input())))
 
-#Alternatywna wersja używając wyrażenia lambda
+#Alternatywna wersja używając wyrażenia lambda(python one liner)
 dec = lambda s: s if len(s) < 3 else dec(s[1:(len(s) + 1) // 2]) + s[0] + dec(s[(len(s) + 1) // 2:])
 
 
