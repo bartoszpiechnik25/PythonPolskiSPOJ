@@ -11,27 +11,22 @@
 # Wyjście:
 # Na wyjściu należy wypisać słowo TAK, jeśli skoczki szachowe wzajemnie się atakują. W przeciwnym przypadku należy
 # wypisać słowo NIE.
-
-from math import sqrt
-
 wsp = {"a": 0, "b": 1, "c": 2, "d": 3, "e": 4, "f": 5, "g": 6, "h": 7}
 
 
 def knight_place(co_ordinates):
-    ans = []
-    if co_ordinates[0].lower() in wsp:
-        a = wsp[co_ordinates[0].lower()]
+    if co_ordinates[0] in wsp:
+        a = wsp[co_ordinates[0]]
         b = int(co_ordinates[1]) - 1
-        ans = [b, a]
-    return ans
+        return b, a
 
-a, b = map(str, input().split())
 
-knight_1 = knight_place(co_ordinates=a)
-knight_2 = knight_place(co_ordinates=b)
+x, y = map(str, input().split())
 
-ans = sqrt((knight_1[0] - knight_2[0]) ** 2 + (knight_1[1] - knight_2[1]) ** 2)
-if ans == sqrt(5):
+knight_1 = knight_place(co_ordinates=x)
+knight_2 = knight_place(co_ordinates=y)
+
+if (knight_1[0] - knight_2[0]) ** 2 + (knight_1[1] - knight_2[1]) ** 2 == 5:
     print("TAK")
 else:
     print("NIE")
