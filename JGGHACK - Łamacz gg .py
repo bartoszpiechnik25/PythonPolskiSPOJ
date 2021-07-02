@@ -6,20 +6,20 @@
 # wielkich liter (A-P) stanowiących zaszyfrowane hasło do konta Gadu-Gadu.
 # Output
 # Na wyjściu wypisz hasła w odkodowanej postaci.
-
 import sys
 
 first = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9, "K": 10, "L": 11, "M": 12,
          "N": 13, "O": 14,"P": 15}
-second = {"A": 0, "B": 16, "C": 32, "D": 48, "E": 64, "F": 80, "G": 96, "H": 112, "I": 128, "J": 144, "K" :160,
+second = {"A": 0, "B": 16, "C": 32, "D": 48, "E": 64, "F": 80, "G": 96, "H": 112, "I": 128, "J": 144, "K": 160,
           "L": 176, "M": 192, "N": 208, "O": 224, "P": 240}
 
+
 def gg_decryption(encrypted):
-    ans = ""
-    n = len(encrypted)
-    for i in range(0, n, 2):
-        ans += chr(first[encrypted[i]]+ second[encrypted[i + 1]])
-    return ans
+    tab = []
+    for i in range(0, len(encrypted), 2):
+        tab.append(chr(first[encrypted[i]] + second[encrypted[i + 1]]))
+    return "".join(tab)
+
 
 for line in sys.stdin:
     line = str(line[:20])
