@@ -13,13 +13,6 @@
 import re
 
 
-def valid(patt, string):
-    if len(patt) != len(string):
-        return False
-    else:
-        return True if patt == string else False
-
-
 if __name__ == '__main__':
     t = int(input())
     for _ in range(t):
@@ -28,5 +21,5 @@ if __name__ == '__main__':
         text = input()
         for number in re.finditer(pattern[0], text):
             oc = number.start()
-            if valid(pattern, text[oc:oc+n]):
+            if pattern == text[oc:oc+n]:
                 print(oc)
